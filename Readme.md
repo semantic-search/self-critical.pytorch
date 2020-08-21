@@ -4,11 +4,13 @@ Base Image
 ```
 docker pull akshay090/self-critical.pytorch:latest
 ```
+
 API Image
 ```
-docker run --gpus all -it -p 80:80 akshay090/self-critical.pytorch:api
+docker build -t self-critical .
 ```
-Test API
+Run 
+
 ```
-curl --location --request POST 'http://127.0.0.1:80/caption/' --form 'file=@/home/sign.jpg'
+docker run --gpus all --env-file .env -it self-critical bash
 ```
