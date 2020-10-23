@@ -1,3 +1,5 @@
+git+https://github.com/ruotianluo/meshed-memory-transformer.git
+transformers
 python-dotenv
 kafka-python
 redis

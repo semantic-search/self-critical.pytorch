@@ -21,22 +21,11 @@ def get_captions(img_feature):
     # Return the 5 captions from beam serach with beam size 5
     return model.decode_sequence(model(img_feature.mean(0)[None], img_feature[None], mode='sample', opt={'beam_size':5, 'sample_method':'beam_search', 'sample_n':5})[0])
 
-def predict(file_name, doc=False):
+def predict(file_name):
 
     captions = get_captions(feature_extractor(file_name))
     captions = ' '.join(captions)
 
-    if doc:
-        response = {
-            "captions": captions
-         }
-    else:
-        response = {
-            "file_name": file_name,
-            "captions": captions,
-            "is_doc_type": False
-        }
-
     os.remove(file_name)
 
-    return response
+    return captions
