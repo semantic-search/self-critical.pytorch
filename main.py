@@ -8,6 +8,7 @@ import requests
 
 global_init()
 
+print("main file")
 def save_to_db(db_object, result_to_save):
     try:
         print("*****************SAVING TO DB******************************")

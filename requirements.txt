@@ -3,3 +3,5 @@ transformers
 python-dotenv
 kafka-python
 mongoengine
+
+requests
