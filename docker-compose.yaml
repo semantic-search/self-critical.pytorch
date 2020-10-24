@@ -2,16 +2,16 @@ version: '3'
 services:
   api:
     image: akshay090/self-critical.pytorch:api
-    ports: 
-      - "80:80"
+    # ports: 
+      # - "80:80"
   kafka-consumer:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    command: python main.py
+    # command: python main.py
     env_file:
       - .env
     volumes:
       - .:/code
-    depends_on:
-      - api
+    # depends_on:
+    #   - api

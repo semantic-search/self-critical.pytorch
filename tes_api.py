@@ -7,5 +7,5 @@ files = {
     'file': read_data,
 }
 
-response = requests.post('http://52.188.166.61/caption/', files=files)
+response = requests.post('http://api/caption/', files=files)
 print(response.content.decode())
