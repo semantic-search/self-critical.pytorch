@@ -20,13 +20,14 @@ def save_to_db(db_object, result_to_save):
     except:
         print("ERROR IN SAVE TO DB")
 
-def update_state(file):
+def update_state(file_name):
     payload = {
-        'topic_name': globals.RECEIVE_TOPIC,
-        'client_id': globals.CLIENT_ID,
-        'value': file
+        'parent_name': globals.PARENT_NAME,
+        'group_name': globals.GROUP_NAME,
+        'container_name': globals.RECEIVE_TOPIC,
+        'file_name': file_name,
+        'client_id': globals.CLIENT_ID
     }
-
     try:
         requests.request("POST", globals.DASHBOARD_URL,  data=payload)
     except:
@@ -62,13 +63,12 @@ if __name__ == "__main__":
                         file_to_save.write(image.file.read())
                     images_array.append(pdf_image)
 
-
                 result_list = list()
                 for image in images_array:
                     image_results = predict(image)
                     result_list.append(image_results)
                 to_save = ' '.join(result_list)
-                print("to_save audio", to_save)
+                print("to_save", to_save)
                 save_to_db(db_object, to_save)
                 print(".....................FINISHED PROCESSING FILE.....................")
                 update_state(file_name)
