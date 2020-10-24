@@ -8,10 +8,10 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    # command: python main.py
+    command: python -u main.py
     env_file:
       - .env
     volumes:
       - .:/code
-    # depends_on:
-    #   - api
+    depends_on:
+      - api
