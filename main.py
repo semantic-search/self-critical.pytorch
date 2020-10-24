@@ -43,8 +43,8 @@ if __name__ == "__main__":
         print(db_key, 'db_key')
         try:
             db_object = Cache.objects.get(pk=db_key)
-        except:
-            print("EXCEPTION IN GET PK... continue")
+        except Exception as e:
+            print(f"{e} EXCEPTION IN GET PK... continue")
             continue
 
         file_name = db_object.file_name

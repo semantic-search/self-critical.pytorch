@@ -1,5 +1,5 @@
 import requests
-
+import json
 with open('test_image/aron3.jpg', 'rb') as f:
     read_data = f.read()
 
@@ -8,4 +8,6 @@ files = {
 }
 
 response = requests.post('http://api/caption/', files=files)
-print(response.content.decode())
+data = response.content.decode()
+data = json.loads(data) 
+print(data, type(data))

@@ -21,6 +21,7 @@
 
 import requests
 import os
+import json
 
 def caption_api(file_name):
     with open(file_name, 'rb') as f:
@@ -30,6 +31,7 @@ def caption_api(file_name):
     }
     response = requests.post('http://api/caption/', files=files)
     data = response.content.decode()
+    data = json.loads(data)
     print(data)
     return data
 
