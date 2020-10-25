@@ -1,16 +1,22 @@
-## Docker GPU Image of [self-critical.pytorch](https://github.com/ruotianluo/self-critical.pytorch)
+## RUN IMAGE DIRECTLY
 
-Base Image 
-```
-docker pull akshay090/self-critical.pytorch:latest
+Clone Repo locally
+
+```git
+    git clone --recurse-submodules https://github.com/semantic-search/self-critical.pytorch.git
 ```
 
-API Image
+RUN Prod compose file
 ```
-docker build -t self-critical .
+docker-compose -f docker-prod.yaml up
 ```
-Run 
+
+## TO Build consumer image and debug 
 
 ```
-docker run --gpus all --env-file .env -it self-critical bash
+docker-compose build
+```
+
+```
+docker-compose up
 ```
