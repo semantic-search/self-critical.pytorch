@@ -15,13 +15,3 @@ Run compose file
 ```
 docker-compose up
 ```
-
-## TO Build consumer image and debug 
-
-add below line in kafka-consumer in docker-compose.yaml
-
-```
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
-```
