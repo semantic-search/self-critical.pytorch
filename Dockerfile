@@ -1,4 +1,4 @@
-FROM akshay090/self-critical.pytorch:latest
+FROM python:3.7
 
 # Set the locale
 ENV LANG=C.UTF-8  

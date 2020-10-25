@@ -6,6 +6,11 @@ Clone Repo locally
     git clone --recurse-submodules https://github.com/semantic-search/self-critical.pytorch.git
 ```
 
+Pull images
+```
+docker-compose pull
+```
+
 Run compose file
 ```
 docker-compose up
@@ -13,12 +18,10 @@ docker-compose up
 
 ## TO Build consumer image and debug 
 
-comment image in docker compose file and do below commands
+add below line in kafka-consumer in docker-compose.yaml
 
 ```
-docker-compose build
-```
-
-```
-docker-compose up
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
 ```
