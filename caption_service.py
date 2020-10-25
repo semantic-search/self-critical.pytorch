@@ -19,6 +19,7 @@
     # Return the 5 captions from beam serach with beam size 5
     # return model.decode_sequence(model(img_feature.mean(0)[None], img_feature[None], mode='sample', opt={'beam_size':5, 'sample_method':'beam_search', 'sample_n':5})[0])
 
+from init import ERR_LOGGER
 import requests
 import os
 import json
@@ -36,10 +37,12 @@ def caption_api(file_name):
     return data
 
 def predict(file_name):
-
-    captions = caption_api(file_name)
-    captions = ' '.join(captions)
-
-    os.remove(file_name)
-
-    return captions
+    try:
+        captions = caption_api(file_name)
+        captions = ' '.join(captions)
+        os.remove(file_name)
+        return captions
+    except Exception as e:
+        print(f"{e} Exception in predict")
+        ERR_LOGGER(f"{e} ERROR In predict")
+        return ""
