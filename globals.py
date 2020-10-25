@@ -1,8 +1,6 @@
 import os
 from dotenv import load_dotenv
 load_dotenv()
-SEND_TOPIC_FULL = "IMAGE_RESULTS"
-SEND_TOPIC_TEXT = "TEXT"
 KAFKA_HOSTNAME = os.getenv("KAFKA_HOSTNAME")
 KAFKA_PORT = os.getenv("KAFKA_PORT")
 KAFKA_USERNAME = os.getenv("KAFKA_USERNAME")
