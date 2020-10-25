@@ -5,6 +5,7 @@ services:
     # ports: 
       # - "80:80"
   kafka-consumer:
+    image: ghcr.io/semantic-search/self-critical-consumer:latest 
     build:
       context: ./
       dockerfile: ./Dockerfile

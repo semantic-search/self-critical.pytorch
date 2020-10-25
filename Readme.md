@@ -6,12 +6,14 @@ Clone Repo locally
     git clone --recurse-submodules https://github.com/semantic-search/self-critical.pytorch.git
 ```
 
-RUN Prod compose file
+Run compose file
 ```
-docker-compose -f docker-prod.yaml up
+docker-compose up
 ```
 
 ## TO Build consumer image and debug 
+
+comment image in docker compose file and do below commands
 
 ```
 docker-compose build
