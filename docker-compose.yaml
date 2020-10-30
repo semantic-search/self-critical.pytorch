@@ -9,10 +9,9 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    command: python -u main.py
+    command: >
+      sh -c "wait-for-it.sh && ./wait-for-it.sh -t 0 api:80 -- python -u main.py"    
     env_file:
       - .env
-    volumes:
-      - .:/code
     depends_on:
       - api
