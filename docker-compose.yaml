@@ -10,7 +10,7 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     command: >
-      sh -c "wait-for-it.sh && ./wait-for-it.sh -t 0 api:80 -- python -u main.py"    
+      sh -c "/app/wait-for-it.sh api:80 -- python -u main.py"    
     env_file:
       - .env
     depends_on:
